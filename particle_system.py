@@ -108,8 +108,8 @@ class ParticleSystem:
     def search_neighbors(self):
         for p_i in range(self.particle_num[None]):
             # Skip boundary particles
-            if self.material[p_i] == self.material_boundary:
-                continue
+            # if self.material[p_i] == self.material_boundary:
+            #     continue
             center_cell = self.pos_to_index(self.x[p_i])
             cnt = 0
             for offset in ti.grouped(ti.ndrange(*((-1, 2),) * self.dim)):
