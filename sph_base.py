@@ -78,8 +78,8 @@ class SPHBase:
               * self.cubic_kernel_derivative(r)
         return res
 
-    def substep(self):
-        pass
+    # def substep(self):
+    #     pass
 
     @ti.func
     def simulate_collisions(self, p_i, vec, d):
@@ -111,8 +111,3 @@ class SPHBase:
                         self.simulate_collisions(
                             p_i, ti.Vector([0.0, 1.0]),
                            self.ps.padding - pos[1])
-
-    def step(self):
-        self.ps.initialize_particle_system()
-        self.substep()
-        self.enforce_boundary()

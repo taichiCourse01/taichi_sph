@@ -3,10 +3,10 @@ import numpy as np
 from particle_system import ParticleSystem
 from wcsph import WCSPHSolver
 
-ti.init(arch=ti.cpu)
+# ti.init(arch=ti.cpu)
 
 # Use GPU for higher peformance if available
-# ti.init(arch=ti.gpu, device_memory_GB=3, packed=True)
+ti.init(arch=ti.gpu, device_memory_GB=3, packed=True)
 
 
 if __name__ == "__main__":
@@ -21,10 +21,10 @@ if __name__ == "__main__":
 
     ps.add_cube(lower_corner=[3, 1],
                 cube_size=[2.0, 6.0],
-                velocity=[0.0, -20.0],
-                density=1000.0,
+                velocity=[0.0, 0.0],
+                density=4000.0,
                 color=0x956333,
-                material=1)
+                material=0)
 
     wcsph_solver = WCSPHSolver(ps)
     gui = ti.GUI(background_color=0xFFFFFF)
